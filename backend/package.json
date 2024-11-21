@@ -1,13 +1,16 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "API backend para o teste técnico de transporte particular",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "npm install && nodemon --watch src/**/*.ts --exec ts-node src/index.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Renato Loureiro",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.0",
@@ -15,5 +18,8 @@
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
   }
 }
