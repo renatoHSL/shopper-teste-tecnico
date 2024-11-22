@@ -1,1 +1,0 @@
-https://medium.com/@sinanozturk/setting-up-an-express-server-with-typescript-a-step-by-step-guide-018fb44d2ac3
