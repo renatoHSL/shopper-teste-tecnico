@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   backend:
     build:
@@ -9,9 +7,9 @@ services:
       - "8080:8080"
     environment:
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - PORT=8080
     volumes:
-      - ./backend:/usr/src/app
-    command: ["node", "app.js"] # Ajuste se necessário
+      - ./backend:/usr/src/backend
 
   frontend:
     build:
@@ -19,8 +17,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    environment:
+      - PORT=80
     volumes:
-      - ./frontend:/usr/src/app
-    command: npm start # Ajuste se necessário
+      - ./frontend:/usr/src/frontend
     depends_on:
       - backend

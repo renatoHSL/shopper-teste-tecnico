@@ -4,13 +4,13 @@ WORKDIR /usr/src/backend
 
 COPY package*.json ./
 
-USER node
-
 RUN npm install
 
 COPY --chown=node:node . .
 
 EXPOSE 8080
+
+USER node
 
 CMD [ "node", "app.js" ]
 

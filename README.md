@@ -31,4 +31,12 @@ https://www.freecodecamp.org/news/how-to-dockerize-a-react-application/
 
 docker-compose:
 https://docs.docker.com/get-started/workshop/08_using_compose/
+https://docs.docker.com/compose/gettingstarted/
 https://www.techrepublic.com/article/how-to-build-a-docker-compose-file/
+https://stackoverflow.com/questions/56879017/how-to-connect-frontend-to-backend-via-docker-compose-networks
+https://www.milanwittpohl.com/projects/tutorials/full-stack-web-app/dockerizing-our-front-and-backend
+
+Chat gpt recomenda inclusao de volumes para o desenovlvimento
+
+docker ginore:
+https://shisho.dev/blog/posts/how-to-use-dockerignore/
