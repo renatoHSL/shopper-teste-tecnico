@@ -1,3 +1,5 @@
+# TODO: TER CERTEZA DE QUE BACKEND RODA ANTES DE FRONTEND
+
 services:
   backend:
     build:
@@ -10,6 +12,11 @@ services:
       - PORT=8080
     volumes:
       - ./backend:/usr/src/backend
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8080"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 2
 
   frontend:
     build:

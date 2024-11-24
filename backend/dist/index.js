@@ -1,9 +1,10 @@
-import express from 'express';
-const app = express();
+import { app } from './Server.js';
 const port = 8080;
-app.get('/', (req, res) => {
-    res.send('Backend funcionando');
-});
-app.listen(port, () => {
-    console.log(`Server is running at <http://localhost>:${port} - Mensagem teste`);
-});
+try {
+    app.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port} - mensagem criada`);
+    });
+}
+catch (error) {
+    console.error('Failed to start server:', error);
+}

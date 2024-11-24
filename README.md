@@ -35,6 +35,7 @@ https://docs.docker.com/compose/gettingstarted/
 https://www.techrepublic.com/article/how-to-build-a-docker-compose-file/
 https://stackoverflow.com/questions/56879017/how-to-connect-frontend-to-backend-via-docker-compose-networks
 https://www.milanwittpohl.com/projects/tutorials/full-stack-web-app/dockerizing-our-front-and-backend
+https://medium.com/@saklani1408/configuring-healthcheck-in-docker-compose-3fa6439ee280
 
 Chat gpt recomenda inclusao de volumes para o desenovlvimento
 
