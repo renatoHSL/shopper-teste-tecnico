@@ -1,7 +1,8 @@
-import { app } from './Server.js';
+// TODO: verificar o motivo de nã ficar server.js mas aceitar Server.js
+import { server } from './Server.js';
 const port = 8080;
 try {
-    app.listen(port, () => {
+    server.listen(port, () => {
         console.log(`Server is running at http://localhost:${port} - mensagem criada`);
     });
 }

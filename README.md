@@ -41,3 +41,13 @@ Chat gpt recomenda inclusao de volumes para o desenovlvimento
 
 docker ginore:
 https://shisho.dev/blog/posts/how-to-use-dockerignore/
+
+api:
+https://www.mindk.com/blog/how-to-build-an-api/
+
+routers:
+https://expressjs.com/en/4x/api.html#router
+https://www.youtube.com/watch?v=ZGzyIN474vI&list=PL29TaWXah3iaaXDFPgTHiFMBF6wQahurP&
+
+middlewares:
+https://expressjs.com/en/guide/writing-middleware.html

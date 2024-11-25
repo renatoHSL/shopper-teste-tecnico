@@ -1,6 +1,6 @@
 import express from 'express';
-const app = express();
-app.get('/', (req, res) => {
-    res.send('Backend funcionando');
-});
-export { app };
+import { router } from './routes/index.js';
+const server = express();
+server.use(express.json());
+server.use(router);
+export { server };

@@ -1,9 +1,9 @@
 import express from 'express'
+import { router } from './routes/index.js'
 
-const app = express()
+const server = express()
 
-app.get('/', (req, res) => {
-  res.send('Backend funcionando')
-})
+server.use(express.json())
+server.use(router)
 
-export { app }
+export { server }
