@@ -51,3 +51,8 @@ https://www.youtube.com/watch?v=ZGzyIN474vI&list=PL29TaWXah3iaaXDFPgTHiFMBF6wQah
 
 middlewares:
 https://expressjs.com/en/guide/writing-middleware.html
+
+google api:
+https://developers.google.com/maps/documentation/routes/overview?hl=pt-br
+https://www.youtube.com/watch?v=iP3DnhCUIsE
+https://github.com/GoogleCloudPlatform/generative-ai/blob/579a4aa9766c632826b03b73729d3a83fd2f3a18/genkit/postcard-generator/libs/maps/maps.ts#L158

@@ -1,11 +1,10 @@
 import { Router } from 'express'
+import rideEstimateController from '../controllers/rideEstimateController.js'
 
 const router = Router()
 
-router.post('/teste', (req, res) => {
-  console.log(req.body)
+const rideEstimateController = new RideEstimateController()
 
-  res.json('Post funcionando')
-})
+router.post('/ride/estimate', rideEstimateController.rideEstimate)
 
 export default router
