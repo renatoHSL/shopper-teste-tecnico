@@ -1,14 +1,21 @@
 import axios from 'axios'
 import db from '../database/knex.js'
 import { config as dotenvConfig } from 'dotenv'
+import { Response } from 'express'
 
-dotenvConfig()
+dotenvConfig({ path: '../.env' })
 
 export class RideEstimateService {
   private GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
 
-  public estimate = async (origin: string, destination: string) => {
+  public estimate = async (
+    origin: string,
+    destination: string,
+    res: Response,
+  ) => {
     const url = 'https://routes.googleapis.com/directions/v2:computeRoutes'
+
+    console.log('Chave da API do Google:', this.GOOGLE_API_KEY)
 
     const body = {
       origin: { address: origin },
@@ -25,19 +32,28 @@ export class RideEstimateService {
       console.log('Chamando a API do Google...')
       const response = await axios.post(url, body, { headers })
 
+      console.log('Resposta da API do Google:', response.data)
+
       const googleData = response.data
       const originCoords = googleData.routes[0]?.legs[0]?.startLocation
+      console.log('origincoords', originCoords)
       const destinationCoords = googleData.routes[0]?.legs[0]?.endLocation
       const distance = googleData.routes[0]?.legs[0]?.distanceMeters / 1000
       const duration = googleData.routes[0]?.legs[0]?.duration
 
+      console.log('Resposta da API do Google depois das dtas:', response.data)
+
       if (distance < 1) {
-        throw new Error(
-          'A distância total da viagem deve ser maior ou igual a 1km.',
-        )
+        res.status(400).json({
+          error_code: 'INVALID_DISTANCE',
+          error_description:
+            'A distância total da viagem deve ser maior ou igual a 1km.',
+        })
       }
 
       const drivers = await db('drivers').select()
+
+      // console.log('Dados dos motoristas:', drivers)
 
       const filteredDrivers = drivers.filter(
         (driver) => distance >= driver.min_km,
@@ -48,10 +64,7 @@ export class RideEstimateService {
         name: driver.name,
         description: driver.description,
         vehicle: driver.vehicle,
-        review: {
-          rating: parseFloat(driver.rating.split('/')[0]),
-          comment: driver.rating.split('-')[1]?.trim(),
-        },
+        rating: driver.rating,
         value: driver.rate_per_km * distance,
       }))
 

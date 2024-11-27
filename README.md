@@ -1,5 +1,11 @@
 # shopper-teste-tecnico:
 
+TIPS:
+usar sempre tsx:
+$env:NODE_OPTIONS="--import tsx"; npx knex migrate:make name_of_migration
+INiciar o servidor:
+npx tsx src/index.ts
+
 ENTRAS TODO:
 Documente no README do projeto que as vulnerabilidades não foram corrigidas por serem irrelevantes no contexto de desenvolvimento.
 
@@ -56,3 +62,12 @@ google api:
 https://developers.google.com/maps/documentation/routes/overview?hl=pt-br
 https://www.youtube.com/watch?v=iP3DnhCUIsE
 https://github.com/GoogleCloudPlatform/generative-ai/blob/579a4aa9766c632826b03b73729d3a83fd2f3a18/genkit/postcard-generator/libs/maps/maps.ts#L158
+
+migrations:
+https://knexjs.org/guide/migrations.html#migration-cli
+
+https://stackoverflow.com/questions/62096269/unknown-file-extension-ts-for-a-typescript-file
+
+map:
+https://developers.google.com/maps/documentation/maps-static/start?hl=pt-br
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent

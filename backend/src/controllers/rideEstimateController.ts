@@ -10,7 +10,7 @@ export class RideEstimateController {
     try {
       const { customer_id, origin, destination } = req.body
 
-      console.log('Body recebido:', req.body)
+      // console.log('Body recebido:', req.body)
 
       if (!customer_id || !origin || !destination) {
         return res.status(400).json({
@@ -28,8 +28,11 @@ export class RideEstimateController {
         })
       }
 
-      // Chamada ao serviço para obter a estimativa
-      const data = await this.rideEstimateService.estimate(origin, destination)
+      const data = await this.rideEstimateService.estimate(
+        origin,
+        destination,
+        res,
+      )
 
       const response = {
         origin: data.origin,
@@ -40,8 +43,7 @@ export class RideEstimateController {
         routeResponse: data.routeResponse,
       }
 
-      // Retorna o JSON com status 200
-      console.log('response aqui', response)
+      // console.log('response aqui', response)
       return res.status(200).json(response)
     } catch (error) {
       return res.status(500).json({

@@ -1,0 +1,35 @@
+<!-- frontend.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste CORS</title>
+  </head>
+  <body>
+    <h1>Teste de CORS</h1>
+    <button id="testCors">Testar CORS</button>
+    <p id="result"></p>
+
+    <script>
+      document
+        .getElementById("testCors")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch("http://localhost:8080/api/test");
+            if (response.ok) {
+              const data = await response.json();
+              document.getElementById("result").textContent = data.message;
+            } else {
+              document.getElementById("result").textContent =
+                "Erro na requisição!";
+            }
+          } catch (error) {
+            document.getElementById(
+              "result"
+            ).textContent = `Erro: ${error.message}`;
+          }
+        });
+    </script>
+  </body>
+</html>
