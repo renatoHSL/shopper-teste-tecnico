@@ -10,7 +10,13 @@
     "build": "tsc",
     "dev": "nodemon --watch src/**/*.ts --exec tsx src/index.ts",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "knex:rollback-all": "set NODE_OPTIONS=--import tsx && knex --knexfile ./src/database/knex/knexfile.ts migrate:rollback --all",
+    "knex:rollback": "set NODE_OPTIONS=--import tsx && knex --knexfile ./src/database/knex/knexfile.ts migrate:rollback",
+    "knex:migrate": "set NODE_OPTIONS=--import tsx && knex --knexfile ./src/database/knex/knexfile.ts migrate:latest",
+    "knex:seed": "set NODE_OPTIONS=--import tsx && knex --knexfile ./src/database/knex/knexfile.ts seed:run",
+    "knex:migrate:make": "set NODE_OPTIONS=--import tsx && knex migrate:make",
+    "knex:seed:make": "set NODE_OPTIONS=--import tsx && knex --knexfile ./src/database/knex/knexfile.ts seed:make"
   },
   "keywords": [],
   "author": "Renato Loureiro",
@@ -19,7 +25,8 @@
     "@eslint/js": "^9.15.0",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/express": "^5.0.0",
-    "@types/node": "^22.9.1",
+    "@types/knex": "^0.15.2",
+    "@types/node": "^22.10.0",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -27,6 +34,7 @@
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.15.0"
@@ -34,6 +42,8 @@
   "dependencies": {
     "axios": "^1.7.8",
     "dotenv": "^16.4.5",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "knex": "^3.1.0",
+    "sqlite3": "^5.1.7"
   }
 }

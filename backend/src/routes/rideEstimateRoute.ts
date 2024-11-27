@@ -1,10 +1,12 @@
 import { Router } from 'express'
-import rideEstimateController from '../controllers/rideEstimateController.js'
+import { RideEstimateController } from '../controllers/rideEstimateController.js'
 
 const router = Router()
 
 const rideEstimateController = new RideEstimateController()
 
-router.post('/ride/estimate', rideEstimateController.rideEstimate)
+router.post('/ride/estimate', (req, res, next) => {
+  rideEstimateController.estimate(req, res).catch(next)
+})
 
 export default router

@@ -5,7 +5,7 @@ export class RideEstimateController {
   constructor() {}
   private rideEstimateService = new RideEstimateService()
 
-  public estimate = async (req: Request, res: Response) => {
+  public estimate = async (req: Request, res: Response): Promise<Response> => {
     try {
       const { customer_id, origin, destination } = req.body
 
