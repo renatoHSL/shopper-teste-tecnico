@@ -4,7 +4,16 @@ import cors from 'cors'
 
 const server = express()
 
-server.use(cors())
+server.use(
+  cors({
+    origin: 'http://localhost',
+    credentials: true,
+  }),
+)
+
+server.get('/config/google-api-key', (req, res) => {
+  res.json({ googleApiKey: process.env.GOOGLE_API_KEY })
+})
 server.use(express.json())
 server.use(router)
 

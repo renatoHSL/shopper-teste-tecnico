@@ -15,7 +15,7 @@ export class RideEstimateService {
   ) => {
     const url = 'https://routes.googleapis.com/directions/v2:computeRoutes'
 
-    console.log('Chave da API do Google:', this.GOOGLE_API_KEY)
+    // console.log('Chave da API do Google:', this.GOOGLE_API_KEY)
 
     const body = {
       origin: { address: origin },
@@ -70,14 +70,16 @@ export class RideEstimateService {
 
       options.sort((a, b) => a.value - b.value)
 
+      console.log('ORIGEM LATIDADE:', originCoords.latLng.latitude)
+
       return {
         origin: {
-          latitude: originCoords.latitude,
-          longitude: originCoords.longitude,
+          latitude: originCoords.latLng.latitude,
+          longitude: originCoords.latLng.longitude,
         },
         destination: {
-          latitude: destinationCoords.latitude,
-          longitude: destinationCoords.longitude,
+          latitude: destinationCoords.latLng.latitude,
+          longitude: destinationCoords.latLng.longitude,
         },
         distance,
         duration,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 interface Driver {
@@ -46,38 +46,42 @@ function App() {
   const [rideOptions, setRideOptions] = useState<Driver[]>([]);
   const [rideHistory, setRideHistory] = useState<RideHistoryItem[]>([]);
   const [rideData, setRideData] = useState<RideData | null>(null);
+  const [mapUrl, setMapUrl] = useState<string | null>(null);
 
   const [userId, setUserId] = useState<string>("");
   const [origin, setOrigin] = useState<string>("");
   const [destination, setDestination] = useState<string>("");
 
+  const fetchApiKey = async (): Promise<string> => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/config/google-api-key"
+      );
+      return response.data.googleApiKey;
+    } catch (error) {
+      console.error("Erro ao buscar a Google API Key:", error);
+      throw new Error("Não foi possível obter a Google API Key.");
+    }
+  };
+
   const estimateRide = async () => {
     try {
-      console.log("Função estimate ride");
       const response = await axios.post("http://localhost:8080/ride/estimate", {
         customer_id: userId,
         origin,
         destination,
       });
-      console.log("origin", origin);
-      console.log("response data.destination", response);
       const googleData = response.data;
-      console.log(googleData);
-      const originCoords = googleData.routes[0]?.legs[0]?.startLocation;
-      console.log("origincoords do front", originCoords);
-      // const destinationCoords = googleData.routes[0]?.legs[0]?.endLocation
-      setRideData(response.data);
-      setRideOptions(response.data.options);
+      setRideData(googleData);
+      setRideOptions(googleData.options);
       setStep("options");
     } catch {
       alert("Erro ao estimar a viagem.");
     }
   };
 
-  console.log("Estado atual de rideData:", rideData);
-
-  const generateMapUrl = () => {
-    console.log("Chamando funcao generateMapurl");
+  // Função para gerar a URL do mapa
+  const generateMapUrl = async (): Promise<string> => {
     if (
       !rideData ||
       !rideData.origin ||
@@ -90,44 +94,38 @@ function App() {
 
     const { origin, destination, routeResponse } = rideData;
 
-    console.log("Conteúdo de routeResponse:", rideData.routeResponse);
-
     if (!routeResponse.routes) {
       console.error("Dados de rota inválidos:", routeResponse);
       return "";
     }
-    console.log("ANtes de polyline");
-    // const polyline = routeResponse.routes[0]?.polyline?.encodedPolyline;
-    console.log("Depois de polyline");
-    const GOOGLE_API_KEY = "AIzaSyB3ZvNoJM3ybECWOAzeai-zHmPja-sKamA";
-    // const baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
 
-    console.log(
-      "Origem (latitude, longitude):",
-      origin.latitude,
+    const polyline = routeResponse.routes[0]?.polyline?.encodedPolyline;
+    const baseUrl = "https://maps.googleapis.com/maps/api/staticmap";
+
+    const googleApiKey = await fetchApiKey();
+
+    const url = `${baseUrl}?size=600x400&path=weight:5|color:blue|enc:${encodeURIComponent(
+      polyline
+    )}&markers=size:mid%7Ccolor:blue%7Clabel:A%7C${origin.latitude},${
       origin.longitude
-    );
-    console.log(
-      "Destino (latitude, longitude):",
-      destination.latitude,
+    }&markers=size:mid%7Ccolor:red%7Clabel:B%7C${destination.latitude},${
       destination.longitude
-    );
+    }&key=${googleApiKey}`;
 
-    // const url = `${baseUrl}?size=600x400&path=weight:5|color:blue|enc:${encodeURIComponent(
-    //   polyline
-    // )}&markers=size:mid%7Ccolor:blue%7Clabel:A%7C${origin.latitude},${
-    //   origin.longitude
-    // }&markers=size:mid%7Ccolor:red%7Clabel:B%7C${destination.latitude},${
-    //   destination.longitude
-    // }&key=${GOOGLE_API_KEY}`;
-
-    const url = `https://maps.googleapis.com/maps/api/staticmap?size=600x400&path=weight:5|color:blue|enc:<POLILINHA_CODIFICADA>&markers=size:mid%7Ccolor:blue%7Clabel:A%7C-23.55052,-46.633308&markers=size:mid%7Ccolor:red%7Clabel:B%7C-22.906847,-43.172896&key=${GOOGLE_API_KEY}`;
-
-    console.log("URL gerado:", url);
     return url;
   };
 
-  console.log("Dados de rideData:", rideData);
+  // Atualiza o URL do mapa sempre que o rideData muda
+  useEffect(() => {
+    const fetchMap = async () => {
+      if (rideData) {
+        const url = await generateMapUrl();
+        setMapUrl(url);
+      }
+    };
+
+    fetchMap();
+  }, [rideData]);
 
   const confirmRide = async (driver: Driver) => {
     try {
@@ -210,7 +208,11 @@ function App() {
           <button onClick={() => setStep("request")}>Voltar</button>
           <div>
             <h1>Mapa da Rota</h1>
-            {rideData && <img src={generateMapUrl()} alt="Mapa da Rota" />}
+            {mapUrl ? (
+              <img src={mapUrl} alt="Mapa da Rota" />
+            ) : (
+              <p>Carregando mapa...</p>
+            )}
           </div>
         </div>
       )}
