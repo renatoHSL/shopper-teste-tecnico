@@ -3,7 +3,7 @@ import { confirmRideController } from '../controllers/RidesController.js'
 
 const router = express.Router()
 
-router.patch('/ride/confirm', (req, res, next) => {
+router.patch('/', (req, res, next) => {
   confirmRideController(req, res).catch(next)
 })
 
