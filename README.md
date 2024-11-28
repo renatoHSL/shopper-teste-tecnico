@@ -68,38 +68,28 @@ Funcionalidades Não Concluídas
 Salvamento de Dados:
 
 O banco de dados foi configurado, mas não houve tempo para integrar o salvamento de dados ao histórico.
+
 Histórico de Viagens:
 
 Tela e lógica para exibir o histórico de viagens do usuário não foram implementadas.
+
 Mapa Estático:
 
-Não foi possível integrar o mapa com a rota estimada, mas o plano era usar a API do Google Maps para isso.
 Fontes Utilizadas
 O desenvolvimento contou com diversas fontes de apoio e documentação, listadas abaixo:
 
-Backend
-Documentação Express.js
-Tutorial DigitalOcean - TypeScript
-ESLint e Prettier
-Guia de ESLint e Prettier
-Frontend
-Documentação React
-Docker e Docker-Compose
-Introdução ao Docker
-Documentação Oficial do Docker Compose
-API do Google Maps
-Documentação Google Maps
-O que Aprendi Durante o Desenvolvimento
-Como configurar um servidor com Express.js e TypeScript.
-A importância de um bom planejamento e organização de tempo para cumprir prazos.
-Uso inicial de Docker para ambientes isolados de desenvolvimento.
-Apesar das limitações, este projeto foi uma excelente oportunidade para aprender e identificar áreas de melhoria.
+
+O que Aprendi Durante o Desenvolvimento:
+Como configurar um servidor com Express.js e TypeScript;
+A importância de um bom planejamento e organização de tempo para cumprir prazos;
+Uso inicial de Docker para ambientes isolados de desenvolvimento;
+Apesar das limitações, este projeto foi uma excelente oportunidade para aprender e identificar áreas de melhoria;
 
 Próximos Passos
 Se tivesse mais tempo, os próximos passos seriam:
 
 Implementar o salvamento das viagens no banco de dados.
-Adicionar a funcionalidade de exibição de um mapa estático com a rota estimada.
 Finalizar a tela de histórico de viagens.
 Corrigir possíveis vulnerabilidades e melhorar a segurança da aplicação.
+
 Espero que este README transmita minha abordagem e esforço durante o desenvolvimento, mesmo que o projeto esteja incompleto. Estou aberto a receber feedback para melhorar nas próximas oportunidades.
