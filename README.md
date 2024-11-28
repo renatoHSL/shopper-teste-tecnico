@@ -1,73 +1,94 @@
-# shopper-teste-tecnico:
+Shopper - Teste Técnico
+Descrição do Projeto
+Este projeto é parte de um teste técnico para a vaga de [Nome da vaga]. A aplicação tem como objetivo criar uma funcionalidade de solicitação de viagens, com integração de APIs e exibição de motoristas disponíveis, incluindo detalhes como veículo, avaliação e preço estimado.
 
-TIPS:
-usar sempre tsx:
-$env:NODE_OPTIONS="--import tsx"; npx knex migrate:make name_of_migration
-INiciar o servidor:
+Status do Projeto
+Infelizmente, devido ao tempo limitado de uma semana, não foi possível concluir todas as etapas do projeto. A funcionalidade principal foi parcialmente implementada. O que está pronto:
+
+Solicitação de Viagem
+
+Formulário com campos para informar o ID do usuário, endereço de origem e destino.
+Requisição para a API com os parâmetros informados, retornando as opções de motoristas disponíveis.
+Exibição das Opções de Viagem
+
+Lista de motoristas com as informações: nome, descrição, veículo, avaliação e valor estimado da viagem.
+Botão "Escolher" para confirmar a viagem.
+Limitações
+Não foi implementada a funcionalidade de salvamento no banco de dados; os dados de motoristas exibidos são buscados a partir de informações já salvas.
+Mapa estático e histórico de viagens não foram finalizados.
+Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
+Instalação e Execução
+Backend
+Instale as dependências:
+bash
+Copiar código
+npm install
+Rode as migrações para configurar o banco de dados (Knex com suporte a TSX):
+bash
+Copiar código
+$env:NODE_OPTIONS="--import tsx"
+npx knex migrate:make name_of_migration
+Inicie o servidor:
+bash
+Copiar código
 npx tsx src/index.ts
+Frontend
+Siga as instruções para criar e configurar o frontend com React:
+React Docs
+Create React App Docs
+Funcionalidades Implementadas
+Formulário de Solicitação de Viagem:
 
-ENTRAS TODO:
-Documente no README do projeto que as vulnerabilidades não foram corrigidas por serem irrelevantes no contexto de desenvolvimento.
+O usuário pode informar:
+ID do usuário
+Endereço de origem
+Endereço de destino
+Ao clicar no botão "Estimar Viagem", o sistema faz uma requisição para a API.
+Exibição de Opções de Viagem:
 
-Fontes usadas:
+Lista de motoristas com informações como:
+Nome
+Descrição
+Veículo
+Avaliação
+Valor estimado da viagem
+Botão "Escolher", que confirma a viagem via API (simulado).
+Funcionalidades Não Concluídas
+Salvamento de Dados:
 
-Iniciando o backed:
-https://expressjs.com/en/starter/hello-world.html
-https://medium.com/@sinanozturk/setting-up-an-express-server-with-typescript-a-step-by-step-guide-018fb44d2ac3
-https://www.digitalocean.com/community/tutorials/typescript-new-project
+O banco de dados foi configurado, mas não houve tempo para integrar o salvamento de dados ao histórico.
+Histórico de Viagens:
 
-ESlint + Prettier:
-https://dev.to/joylee/eslint-and-prettier-a-guide-to-cleaner-code-5go9
-https://dev.to/otaviopalma/criando-um-projeto-react-com-typescript-eslint-e-prettier-2okg
-https://eslint.org/docs/latest/integrate/nodejs-api
+Tela e lógica para exibir o histórico de viagens do usuário não foram implementadas.
+Mapa Estático:
 
-Common.js to ESM:
-https://www.youtube.com/watch?v=utqADmW7-HE
+Não foi possível integrar o mapa com a rota estimada, mas o plano era usar a API do Google Maps para isso.
+Fontes Utilizadas
+O desenvolvimento contou com diversas fontes de apoio e documentação, listadas abaixo:
 
-Frontend:
-https://react.dev/learn/start-a-new-react-project
-https://create-react-app.dev/docs/getting-started
+Backend
+Documentação Express.js
+Tutorial DigitalOcean - TypeScript
+ESLint e Prettier
+Guia de ESLint e Prettier
+Frontend
+Documentação React
+Docker e Docker-Compose
+Introdução ao Docker
+Documentação Oficial do Docker Compose
+API do Google Maps
+Documentação Google Maps
+O que Aprendi Durante o Desenvolvimento
+Como configurar um servidor com Express.js e TypeScript.
+A importância de um bom planejamento e organização de tempo para cumprir prazos.
+Uso inicial de Docker para ambientes isolados de desenvolvimento.
+Apesar das limitações, este projeto foi uma excelente oportunidade para aprender e identificar áreas de melhoria.
 
-Docker:
-https://www.freecodecamp.org/portuguese/news/um-guia-para-iniciantes-em-docker-como-criar-sua-primeira-aplicacao-com-o-docker/
-https://docs.docker.com/reference/dockerfile/
-https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker
+Próximos Passos
+Se tivesse mais tempo, os próximos passos seriam:
 
-https://www.freecodecamp.org/news/how-to-dockerize-a-react-application/
-
-docker-compose:
-https://docs.docker.com/get-started/workshop/08_using_compose/
-https://docs.docker.com/compose/gettingstarted/
-https://www.techrepublic.com/article/how-to-build-a-docker-compose-file/
-https://stackoverflow.com/questions/56879017/how-to-connect-frontend-to-backend-via-docker-compose-networks
-https://www.milanwittpohl.com/projects/tutorials/full-stack-web-app/dockerizing-our-front-and-backend
-https://medium.com/@saklani1408/configuring-healthcheck-in-docker-compose-3fa6439ee280
-
-Chat gpt recomenda inclusao de volumes para o desenovlvimento
-
-docker ginore:
-https://shisho.dev/blog/posts/how-to-use-dockerignore/
-
-api:
-https://www.mindk.com/blog/how-to-build-an-api/
-
-routers:
-https://expressjs.com/en/4x/api.html#router
-https://www.youtube.com/watch?v=ZGzyIN474vI&list=PL29TaWXah3iaaXDFPgTHiFMBF6wQahurP&
-
-middlewares:
-https://expressjs.com/en/guide/writing-middleware.html
-
-google api:
-https://developers.google.com/maps/documentation/routes/overview?hl=pt-br
-https://www.youtube.com/watch?v=iP3DnhCUIsE
-https://github.com/GoogleCloudPlatform/generative-ai/blob/579a4aa9766c632826b03b73729d3a83fd2f3a18/genkit/postcard-generator/libs/maps/maps.ts#L158
-
-migrations:
-https://knexjs.org/guide/migrations.html#migration-cli
-
-https://stackoverflow.com/questions/62096269/unknown-file-extension-ts-for-a-typescript-file
-
-map:
-https://developers.google.com/maps/documentation/maps-static/start?hl=pt-br
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+Implementar o salvamento das viagens no banco de dados.
+Adicionar a funcionalidade de exibição de um mapa estático com a rota estimada.
+Finalizar a tela de histórico de viagens.
+Corrigir possíveis vulnerabilidades e melhorar a segurança da aplicação.
+Espero que este README transmita minha abordagem e esforço durante o desenvolvimento, mesmo que o projeto esteja incompleto. Estou aberto a receber feedback para melhorar nas próximas oportunidades.
