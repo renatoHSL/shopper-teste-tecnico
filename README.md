@@ -11,11 +11,16 @@ Solicitação de Viagem
 
 Formulário com campos para informar o ID do usuário, endereço de origem e destino.
 Requisição para a API com os parâmetros informados, retornando as opções de motoristas disponíveis.
+
 Exibição das Opções de Viagem
 
 Lista de motoristas com as informações: nome, descrição, veículo, avaliação e valor estimado da viagem.
+
+
 Botão "Escolher" para confirmar a viagem.
+
 Limitações
+
 Não foi implementada a funcionalidade de salvamento no banco de dados; os dados de motoristas exibidos são buscados a partir de informações já salvas.
 Mapa estático e histórico de viagens não foram finalizados.
 Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
