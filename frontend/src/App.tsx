@@ -80,7 +80,6 @@ function App() {
     }
   };
 
-  // Função para gerar a URL do mapa
   const generateMapUrl = async (): Promise<string> => {
     if (
       !rideData ||
@@ -115,7 +114,6 @@ function App() {
     return url;
   };
 
-  // Atualiza o URL do mapa sempre que o rideData muda
   useEffect(() => {
     const fetchMap = async () => {
       if (rideData) {

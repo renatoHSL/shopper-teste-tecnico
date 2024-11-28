@@ -1,8 +1,8 @@
-import { Router } from 'express'
-import { confirmRide } from '../controllers/RidesController'
+// import { Router } from 'express'
+// import { confirmRide } from '../controllers/RidesController'
 
-const ridesRouter = Router()
+// const ridesRouter = Router()
 
-ridesRouter.patch('/ride/confirm', confirmRide)
+// ridesRouter.patch('/ride/confirm', confirmRide)
 
-export default ridesRouter
+// export default ridesRouter
