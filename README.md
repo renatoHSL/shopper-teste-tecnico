@@ -2,9 +2,10 @@ Shopper - Teste Técnico
 
 Descrição do Projeto
 
-Este projeto é parte de um teste técnico para a vaga de [Nome da vaga]. A aplicação tem como objetivo criar uma funcionalidade de solicitação de viagens, com integração de APIs e exibição de motoristas disponíveis, incluindo detalhes como veículo, avaliação e preço estimado.
+Este projeto é parte de um teste técnico para a vaga de Desenvolvedor Web. A aplicação tem como objetivo criar uma funcionalidade de solicitação de viagens, com integração de APIs e exibição de motoristas disponíveis, incluindo detalhes como veículo, avaliação e preço estimado.
 
 Status do Projeto
+
 Infelizmente, devido ao tempo limitado de uma semana, não foi possível concluir todas as etapas do projeto. A funcionalidade principal foi parcialmente implementada. O que está pronto:
 
 Solicitação de Viagem
