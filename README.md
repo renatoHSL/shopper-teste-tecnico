@@ -78,11 +78,3 @@ Se tivesse mais tempo, os próximos passos seriam:
 
 Espero que este README transmita minha abordagem e esforço durante o desenvolvimento, mesmo que o projeto esteja incompleto. Estou aberto a receber feedback para melhorar nas próximas oportunidades.  
 
----
-
-## **Instalação e Execução**
-
-### **Backend**
-1. Instale as dependências:  
-   ```bash
-   npm install
