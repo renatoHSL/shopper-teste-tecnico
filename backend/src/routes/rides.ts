@@ -1,10 +1,8 @@
-import express from 'express'
-import { confirmRideController } from '../controllers/RidesController.js'
+import { Router } from 'express'
+import { confirmRide } from '../controllers/RidesController'
 
-const router = express.Router()
+const ridesRouter = Router()
 
-router.patch('/', (req, res, next) => {
-  confirmRideController(req, res).catch(next)
-})
+ridesRouter.patch('/ride/confirm', confirmRide)
 
-export default router
+export default ridesRouter

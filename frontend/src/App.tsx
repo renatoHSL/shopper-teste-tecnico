@@ -129,12 +129,17 @@ function App() {
 
   const confirmRide = async (driver: Driver) => {
     try {
+      console.log("Iniciando confirmRide");
       if (!rideData) {
         alert("Erro: Dados da viagem não encontrados.");
+        console.error("rideData está vazio:", rideData);
         return;
       }
 
-      await axios.patch("http://localhost:8080/ride/confirm", {
+      console.log("Confirmando viagem com o motorista:", driver);
+      console.log("Dados da viagem:", rideData);
+
+      const response = await axios.patch("http://localhost:8080/ride/confirm", {
         customer_id: userId,
         origin,
         destination,
@@ -143,11 +148,17 @@ function App() {
         driver,
         value: driver.value,
       });
+
+      console.log("Resposta do servidor:", response.data);
       alert("Viagem confirmada!");
+
       fetchHistory();
       setStep("history");
-    } catch {
-      alert("Erro ao confirmar a viagem.");
+    } catch (error) {
+      console.error("Erro ao confirmar a viagem:", error);
+      alert(
+        "Erro ao confirmar a viagem. Verifique o console para mais detalhes."
+      );
     }
   };
 
