@@ -23,7 +23,7 @@ Limitações
 
 Não foi implementada a funcionalidade de salvamento no banco de dados; os dados de motoristas exibidos são buscados a partir de informações já salvas.
 
-Mapa estático e histórico de viagens não foram finalizados.
+Histórico de viagens não foi finalizado.
 
 Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
 
