@@ -22,35 +22,39 @@ Botão "Escolher" para confirmar a viagem.
 Limitações
 
 Não foi implementada a funcionalidade de salvamento no banco de dados; os dados de motoristas exibidos são buscados a partir de informações já salvas.
+
 Mapa estático e histórico de viagens não foram finalizados.
+
 Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
+
 Instalação e Execução
+
 Backend
+
 Instale as dependências:
-bash
-Copiar código
+
 npm install
+
 Rode as migrações para configurar o banco de dados (Knex com suporte a TSX):
-bash
-Copiar código
+
 $env:NODE_OPTIONS="--import tsx"
 npx knex migrate:make name_of_migration
+
 Inicie o servidor:
-bash
-Copiar código
+
 npx tsx src/index.ts
-Frontend
-Siga as instruções para criar e configurar o frontend com React:
-React Docs
-Create React App Docs
+
 Funcionalidades Implementadas
-Formulário de Solicitação de Viagem:
+Formulário de Solicitação de Viage
+m:
 
 O usuário pode informar:
+
 ID do usuário
 Endereço de origem
 Endereço de destino
 Ao clicar no botão "Estimar Viagem", o sistema faz uma requisição para a API.
+
 Exibição de Opções de Viagem:
 
 Lista de motoristas com informações como:
