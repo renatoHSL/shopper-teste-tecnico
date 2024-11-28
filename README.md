@@ -27,26 +27,8 @@ Mapa estático e histórico de viagens não foram finalizados.
 
 Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
 
-Instalação e Execução
-
-Backend
-
-Instale as dependências:
-
-npm install
-
-Rode as migrações para configurar o banco de dados (Knex com suporte a TSX):
-
-$env:NODE_OPTIONS="--import tsx"
-npx knex migrate:make name_of_migration
-
-Inicie o servidor:
-
-npx tsx src/index.ts
-
 Funcionalidades Implementadas
-Formulário de Solicitação de Viage
-m:
+Formulário de Solicitação de Viagem:
 
 O usuário pode informar:
 
@@ -64,6 +46,7 @@ Veículo
 Avaliação
 Valor estimado da viagem
 Botão "Escolher", que confirma a viagem via API (simulado).
+Mapa da viagem
 Funcionalidades Não Concluídas
 Salvamento de Dados:
 
@@ -73,10 +56,6 @@ Histórico de Viagens:
 
 Tela e lógica para exibir o histórico de viagens do usuário não foram implementadas.
 
-Mapa Estático:
-
-Fontes Utilizadas
-O desenvolvimento contou com diversas fontes de apoio e documentação, listadas abaixo:
 
 
 O que Aprendi Durante o Desenvolvimento:
@@ -93,3 +72,23 @@ Finalizar a tela de histórico de viagens.
 Corrigir possíveis vulnerabilidades e melhorar a segurança da aplicação.
 
 Espero que este README transmita minha abordagem e esforço durante o desenvolvimento, mesmo que o projeto esteja incompleto. Estou aberto a receber feedback para melhorar nas próximas oportunidades.
+
+
+
+Instalação e Execução
+
+Backend
+
+Instale as dependências:
+
+npm install
+
+Rode as migrações para configurar o banco de dados (Knex com suporte a TSX):
+
+$env:NODE_OPTIONS="--import tsx"
+npx knex migrate:make name_of_migration
+
+Inicie o servidor:
+
+npx tsx src/index.ts
+
