@@ -6,7 +6,8 @@ Este projeto é parte de um teste técnico para a vaga de Desenvolvedor Web. A a
 
 Status do Projeto
 
-Infelizmente, devido ao tempo limitado de uma semana, não foi possível concluir todas as etapas do projeto. A funcionalidade principal foi parcialmente implementada. O que está pronto:
+Infelizmente, devido ao tempo limitado de uma semana, não foi possível concluir todas as etapas do projeto. A funcionalidade principal foi parcialmente implementada. 
+O que está pronto:
 
 Solicitação de Viagem
 
