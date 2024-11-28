@@ -7,21 +7,22 @@ Este projeto é parte de um teste técnico para a vaga de Desenvolvedor Web. A a
 Status do Projeto
 
 Infelizmente, devido ao tempo limitado de uma semana, não foi possível concluir todas as etapas do projeto. A funcionalidade principal foi parcialmente implementada. 
+
 O que está pronto:
 
-Solicitação de Viagem
+Solicitação de Viagem:
 
 Formulário com campos para informar o ID do usuário, endereço de origem e destino.
 Requisição para a API com os parâmetros informados, retornando as opções de motoristas disponíveis.
 
-Exibição das Opções de Viagem
+Exibição das Opções de Viagem:
 
 Lista de motoristas com as informações: nome, descrição, veículo, avaliação e valor estimado da viagem.
 
-
 Botão "Escolher" para confirmar a viagem.
 
-Limitações
+
+Limitações:
 
 Não foi implementada a funcionalidade de salvamento no banco de dados; os dados de motoristas exibidos são buscados a partir de informações já salvas.
 
@@ -29,7 +30,9 @@ Histórico de viagens não foi finalizado.
 
 Correções de vulnerabilidades foram deixadas de lado, por serem irrelevantes no contexto deste desenvolvimento inicial.
 
-Funcionalidades Implementadas
+
+Funcionalidades Implementadas:
+
 Formulário de Solicitação de Viagem:
 
 O usuário pode informar:
